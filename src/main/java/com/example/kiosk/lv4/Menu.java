@@ -6,6 +6,7 @@ import java.util.List;
 public class Menu {//Menu 클래스 생성
     private String menuCategory; //// 카테고리 필드선언
     private List<MenuItem> menuItems; //List<MenuItem> 관리하도록 변경
+    private String selectedCategory;
 
     public Menu(String menuCategory) {
         this.menuCategory = menuCategory;
@@ -20,6 +21,8 @@ public class Menu {//Menu 클래스 생성
         menuItems.add(item);
     }
 
+
+
     public void showMenuItem() {
         System.out.printf("[ %s Menu ]\n", menuCategory);
         for(int i=0; i<menuItems.size(); i++) {
@@ -32,5 +35,4 @@ public class Menu {//Menu 클래스 생성
     public String toString() { //
         return menuCategory;
     }
-
 }

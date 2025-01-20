@@ -5,15 +5,19 @@ import java.util.Scanner;
 
 public class Kiosk {
     private List<Menu> menuCategory;
+    private List<Menu> selectedCategory;
+    private Scanner scanner;
+
     public Kiosk (List<Menu> menuCategory) {
         this.menuCategory = menuCategory;
     }
     public void start () {
         Scanner scanner = new Scanner(System.in); // 스캐너 선언
         // 반복문 시작
+        mainloop:
         while (true) {
             System.out.println("번호를 입력하여 주문을 해주세요.\n" +
-                    "[ MAIN MENU ]\n");
+                    "[ MAIN MENU ]");
             for(int i=0; i<menuCategory.size(); i++) {
                 System.out.println((i+1)+"." + menuCategory.get(i)); //오브젝트 상속
             }
@@ -29,7 +33,6 @@ public class Kiosk {
 
             try{
                 int number = Integer.parseInt(input);
-
                 if (number > 0 && number <= menuCategory.size()) {
                     Menu selectedCategory = menuCategory.get(number - 1);
                     nextMenuSelect(scanner, selectedCategory);
@@ -41,20 +44,15 @@ public class Kiosk {
             } catch (NumberFormatException nfe) {
                 System.out.println("숫자를 입력해주세요.");
                 continue;
-            } finally {
-                // 3. 예외의 발생 여부와 상관없이, 실행시켜야 하는 코드가 들어갑니다.
-                // 무조건 실행되는 코드가 들어가는 블럭입니다.
-                System.out.println("입력하신 숫자는 : " + input + "입니다. ");
             }
         }
-        // 프로그램을 종료
-        // 선택한 메뉴 : 이름, 가격, 설명
-        scanner.close();
+
+        scanner.close();// 프로그램을 종료
     }
     private void nextMenuSelect(Scanner scanner, Menu selectedCategory) {
         while(true) {
             selectedCategory.showMenuItem();
-            System.out.println("0. 종료 | 종료합니다.");
+            System.out.println("0. 뒤로가기 | 메인 메뉴로 돌아가기.");
             System.out.println("번호를 입력하여 주문을 해주세요: ");
             String input = scanner.nextLine();// 숫자를 입력 받기
 
@@ -75,14 +73,8 @@ public class Kiosk {
                     continue;// 숫자 이외의 입력을 받았을 때 나오는 문구
                 }
             } catch (NumberFormatException nfe) {
-                System.out.println("숫자를 입력해주세요.");
-                continue; // 유효하지 않은 입력에 대해 오류 메시지를 출력합니다.
-            } finally {
-                // 3. 예외의 발생 여부와 상관없이, 실행시켜야 하는 코드가 들어갑니다.
-                // 무조건 실행되는 코드가 들어가는 블럭입니다.
-                System.out.println("입력하신 숫자는 : " + input + "입니다. ");
+                System.out.println("숫자를 입력해주세요."); // 유효하지 않은 입력에 대해 오류 메시지를 출력합니다.
             }
-
         }
     }
 }
