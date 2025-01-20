@@ -42,41 +42,11 @@ It shows Menu Category for Hamburger shop. Users can choose a menu, go back to m
 <br><br><br>
 <br>
 
-
-카테고리 선택창
-
-Main page for choose category.
-
-
-<br><br>
-
-
-메뉴 선택창
-
-Menu page for order.
-
-
-<br><br>
-
-
-돌아가기
-
-Go back to main page.
-
-<br><br>
-
-
-
-종료
-
-Terminate.
-
-<br><br>
-
-
-숫자 외의 입력에 대한 오류 메세지.
-
-Message for exception input.
+1) 카테고리 선택창 / Main page for choose category.
+2) 메뉴 선택창 / Menu page for order.
+3) 돌아가기 / Go back to main page.
+4) 종료 / Terminate.
+5) 숫자 외의 입력에 대한 오류 메세지./ Message for exception input.
 
 
 
