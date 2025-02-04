@@ -5,9 +5,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean keepRunning = true;
 
-        while (keepRunning) {
+        while (true) {
             System.out.println("번호를 입력하여 주문을 해주세요.\n" +
                     "[ SHAKESHACK MENU ]\n" +
                     "1. ShackBurger   | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거\n" +
@@ -18,32 +17,21 @@ public class Main {
 
             int firstFunc = sc.nextInt();
 
-            if (firstFunc ==1 ) {
+            if (firstFunc == 0 ) {
+                System.out.println("프로그램을 종료합니다.");
+                 return;
+            } else if (firstFunc ==1 ) {
                 System.out.println("ShackBurger(을)를 선택하였습니다.");
-                break;
-            }
-            if (firstFunc ==2 ) {
+            } else if (firstFunc ==2 ) {
                 System.out.println("SmokeShack(을)를 선택하였습니다.");
-                break;
-            }
-            if  (firstFunc ==3 ) {
+            } else if (firstFunc ==3 ) {
                 System.out.println("Cheeseburger(을)를 선택하였습니다.");
-                break;
-            }
-            if  (firstFunc == 4 ) {
+            } else if (firstFunc == 4 ) {
                 System.out.println("Hamburger (을)를 선택하였습니다.");
-                break;
-            }
-            if (firstFunc > 4 ) {
+            } else {
                 System.out.println("다시 입력해주세요.");
                 continue;
             }
-            if (firstFunc == 0) {
-                keepRunning = false;
-                break;
-            }
         }
-        System.out.println("키오스크를 종료합니다.");
-        sc.close();
     }
 }
